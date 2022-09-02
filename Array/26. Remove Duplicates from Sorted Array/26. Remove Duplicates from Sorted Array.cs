@@ -46,10 +46,12 @@ solution:
 public class Solution {
    public int RemoveDuplicates(int[] nums)
     {
+		//used to hold the current array elements and responsible for result
         int left = 1;
 
         for (int right = 1; right < nums.Length; right++)
         {
+			//check if previous is not same and then update the current element value of left
             if (nums[right] != nums[right-1])
             {
                 nums[left] = nums[right];
