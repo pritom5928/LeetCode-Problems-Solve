@@ -103,5 +103,49 @@ public class Solution
 }
 
 
+O(N) with optimal solution:
+
+
+using System.ComponentModel;
+
+int romanToInt = new Solution().RomanToInt("XL");
+Console.WriteLine(romanToInt);
+
+public class Solution
+{
+    public int RomanToInt(string s)
+    {
+        //container holds all base roman value
+        Dictionary<string, int> container = new Dictionary<string, int>
+        {
+            {"I", 1 },
+            {"V", 5},
+            {"X", 10},
+            {"L", 50},
+            {"C", 100},
+            {"D", 500},
+            {"M", 1000}
+        };
+
+        //take last index 
+        char indexCharacter = s[s.Length - 1];
+        //store last index value from dictionary
+        int result = container[indexCharacter.ToString()];
+
+        //starts from the second last index and iterate upto first index
+        for (int i = s.Length - 2; i >= 0; i--)
+        {
+            //if index value is greater or equal to its next value then add otherwise subtract from result
+            if (container[s[i].ToString()] >= container[s[i + 1].ToString()])
+                result += container[s[i].ToString()];
+            else
+                result -= container[s[i].ToString()];
+        }
+        return result;
+    }
+}
+
+
+
 
 
