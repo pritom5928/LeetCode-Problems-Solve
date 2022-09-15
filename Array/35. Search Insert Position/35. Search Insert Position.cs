@@ -44,16 +44,16 @@ public class Solution
     private int GetIndexOfSearch(int[] nums, int target, int start, int end)
     {
         int mid = (start + end) / 2;
-
-        if (nums[mid] == target)
+		
+        if (nums[mid] == target)//check if the current element is the target
             return mid;
-        else if (nums[start] > target)
+        else if (nums[start] > target)//check if target value starts before the first indexed value
             return start;
-        else if (start == end || start > end)
+        else if (start == end || start > end)//check if the iteration didn't found any target to the array
             return start + 1;
-        else if (nums[mid] < target)
+        else if (nums[mid] < target)//if current mid value less than target then it resides on the right side
             start = mid + 1;
-        else if (nums[mid] > target)
+        else if (nums[mid] > target)//if current mid value greater than target then it resides on the left side
             end = mid - 1;
 
         return GetIndexOfSearch(nums, target, start, end);
