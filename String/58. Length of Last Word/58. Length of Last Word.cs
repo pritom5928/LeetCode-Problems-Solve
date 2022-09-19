@@ -56,3 +56,33 @@ public class Solution
     }
 }
 
+Naive approach without trim function that beats 72.39%% C# submissions:  
+
+using System.ComponentModel;
+using System.Reflection.Metadata.Ecma335;
+
+int result = new Solution().LengthOfLastWord("   fly me   to   the moon  ");
+Console.WriteLine(result);
+
+public class Solution
+{
+    public int LengthOfLastWord(string s)
+    {
+        int result = 0;
+        bool isLetterFound = false;
+        for (int i = s.Length - 1; i >= 0; i--)
+        {
+            if (s[i] != ' ')
+            {
+                isLetterFound = true;
+                result++;
+            }
+            else if (s[i] == ' ' && !isLetterFound)
+                continue;
+            else
+                break;
+        }
+
+        return result;
+    }
+}
