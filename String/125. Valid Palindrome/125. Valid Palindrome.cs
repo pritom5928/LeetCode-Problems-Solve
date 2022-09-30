@@ -65,3 +65,29 @@ public class Solution
         return isPalindrome;
     }
 }
+
+optimal solution which beats 57.36% C# submisisons:
+
+public class Solution {
+    public bool IsPalindrome(string s)
+    {
+        char[] chars = s.Where(c=>char.IsLetterOrDigit(c)).ToArray();
+        string validCharacters = new string(chars).ToLower();
+        int length = validCharacters.Length;
+        bool isPalindrome = true;
+
+        for (int i = 0; i < validCharacters.Length; i++)
+        {
+            length--;
+            if (validCharacters[i] == validCharacters[length])
+                continue;
+            else
+            {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        return isPalindrome;
+    }
+}
