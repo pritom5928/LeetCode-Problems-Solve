@@ -68,3 +68,41 @@ namespace SolveInCSharp
         }
     }
 }
+
+Little improvements: 
+
+
+ public class Solution
+    {
+        public string ReverseVowels(string s)
+        {
+            int start = 0, end = s.Length - 1;
+            char[] inputs = s.ToCharArray();
+            while (start < end)
+            {
+                if (IsVowel(inputs[start]) && IsVowel(inputs[end]))
+                {
+                    char tempChar = inputs[start];
+                    inputs[start] = inputs[end];
+                    inputs[end] = tempChar;
+                    start++;
+                    end--;
+                }
+                else if (IsVowel(inputs[start]) && !IsVowel(inputs[end]))
+                    end--;
+                else if (!IsVowel(inputs[start]) && IsVowel(inputs[end]))
+                    start++;
+                else
+                {
+                    start++;
+                    end--;
+                }
+            }
+            return new String(inputs);
+        }
+
+        private bool IsVowel(char v)
+        {
+            return ((v == 'a' || v == 'e' || v == 'i' || v == 'o' || v == 'u') || (v == 'A' || v == 'E' || v == 'I' || v == 'O' || v == 'U'));
+        }
+    }
