@@ -51,3 +51,32 @@ public class Solution
             return result;
         }
     }	
+	
+	
+	
+Optimal solution with O(n) cpomplexity with 282 ms runtime & beats 94.85% submissions:
+
+public class Solution
+    {
+        public double FindMaxAverage(int[] nums, int k)
+        {
+            double result = 0;
+            if (k != 0)
+            {
+                int sum = 0, max = 0;
+                for (int i = 0; i < k; i++)
+                {
+                    sum += nums[i];
+                }
+                max = sum;
+
+                for (int i = k; i < nums.Length; i++)
+                {
+                    sum = sum + nums[i] - nums[i - k];
+                    max = Math.Max(max, sum);
+                }
+                result = (double)max / k;
+            }
+            return result;
+        }
+    }	
