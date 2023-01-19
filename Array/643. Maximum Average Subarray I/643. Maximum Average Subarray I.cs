@@ -54,7 +54,7 @@ public class Solution
 	
 	
 	
-Optimal solution with O(n) cpomplexity with 282 ms runtime & beats 94.85% submissions:
+Optimal solution with O(n) complexity with 282 ms runtime & beats 94.85% submissions & beats 12.50% memory efficiency:
 
 public class Solution
     {
