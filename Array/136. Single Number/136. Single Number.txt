@@ -42,3 +42,14 @@ Naive solution by hashtable with 101 ms runtime & beats 89.35% C# submissions wi
 
             return values.Keys.First();
         }
+
+
+optimal solution by bit manipulation with 100 ms beats 92.30% C# submissions with 53.3% memory beats: 
+
+ public int SingleNumber(int[] nums)
+        {
+             int xor = 0;
+                foreach (int num in nums)
+                    xor ^= num;
+             return xor;
+        }
