@@ -26,6 +26,16 @@ Constraints:
 
 solution with 24 ms runtime that beats 83.84% with 26.7 MB memory consumption that beats 37.18%:
 
+Formula : Newton-Raphson method => 
+
+ lets x = 5. find square root for 5;
+1. lets say initial value for square root 
+	X0 = 5/2
+	=> X0 = 2;
+2. find X1 = (X0 + (5/X0))/2;
+3. repeats step 2 for X2, X3, X4 and so on. Each time subtracting two consecutive 
+	X values and check for certain threshold. here threshold for newton-raphson method is 0.0001. if diff meets threshold stop execution
+
 public class Solution {
     public int MySqrt(int x)
         {
