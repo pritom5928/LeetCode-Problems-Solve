@@ -47,12 +47,14 @@ namespace SolveInCSharp
 
             while (start < s.Length)
             {
+                //check whether the element doesn't exists on the sets, add to set,update start value & assign max value by current set size
                 if (!set.Contains(s[start]))
                 {
                     set.Add(s[start]);
                     max = Math.Max(max, set.Count);
                     start++;
                 }
+		//check whether the element exists on the sets i.e duplicate found, clear  set, update end value and set start value from end again to iterate to find new substring
                 else
                 {
                     end++;
