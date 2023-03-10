@@ -54,3 +54,15 @@ public class Solution
             return resultArray;
         }
     }
+
+
+
+Another approach with LINQ 166ms runtime beats 42.21% C# submissions. This just for fun :D :
+
+public class Solution
+    {
+        public int[] TopKFrequent(int[] nums, int k)
+        {
+            return  nums.GroupBy(g => g).OrderByDescending(o => o.Count()).Select(s=>s.Key).Take(k).ToArray();
+        }
+    }
