@@ -27,3 +27,24 @@ n == nums.length
 
 Follow-up: Could you solve the problem in linear time and in O(1) space?
 
+Solution Runtime 89ms Beats 91.65% of users with C# =>
+
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        int counter = 0, result = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if(counter == 0)
+                   result = nums[i];
+
+                if (result == nums[i])
+                    counter++;
+                else
+                    counter--;
+                
+            }
+
+            return result;
+    }
+}
