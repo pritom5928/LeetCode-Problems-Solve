@@ -24,3 +24,10 @@ Constraints:
 1 <= haystack.length, needle.length <= 104
 haystack and needle consist of only lowercase English characters.
 
+Naive solution by library function in c# Runtime 56ms Beats 70.95% of users with C# =>
+
+public class Solution {
+    public int StrStr(string haystack, string needle) {
+        return haystack.IndexOf(needle);
+    }
+}
