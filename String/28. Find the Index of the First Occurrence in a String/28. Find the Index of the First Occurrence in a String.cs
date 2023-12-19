@@ -31,3 +31,24 @@ public class Solution {
         return haystack.IndexOf(needle);
     }
 }
+
+
+optimal solution in c# Runtime 66ms Beats 13.68% of users with C# =>
+
+public class Solution
+    {
+        public int StrStr(string haystack, string needle)
+        {
+            //iterate upto the item which is the first element of needle
+            for (int i = 0; i < (haystack.Length - needle.Length) + 1; i++)
+            {
+                if(haystack[i] == needle[0])
+                {
+                    if (haystack.Substring(i, needle.Length) == needle)
+                        return i;
+                }
+            }
+
+            return -1;
+        }
+    }
