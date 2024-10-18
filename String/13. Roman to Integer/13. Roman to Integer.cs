@@ -103,7 +103,7 @@ public class Solution
 }
 
 
-O(N) with optimal solution:
+1. O(N) with optimal solution:
 
 
 using System.ComponentModel;
@@ -145,7 +145,38 @@ public class Solution
     }
 }
 
+2. another solution with linq Runtime 52 ms Beats 67.51%
 
-
+ public int RomanToInt(string s)
+ {
+     List<(int, string, int)> symbolValues = new List<(int, string, int)>
+     {
+         (0, "I", 1),
+         (1, "V", 5),
+         (2, "X", 10),
+         (3, "L", 50),
+         (4, "C", 100),
+         (5, "D", 500),
+         (6, "M", 1000)
+     };
+     int result = 0;
+     for (int i = 0; i < s.Length; i++)
+     {
+         if(symbolValues.Any(a=>a.Item2 == s[i].ToString()))
+         {
+             //check if next digit is higher then subtract from its value
+             if (i + 1 < s.Length &&
+                 symbolValues.FirstOrDefault(a => a.Item2 == s[i + 1].ToString()).Item1 > symbolValues.FirstOrDefault(a => a.Item2 == s[i].ToString()).Item1)
+             {
+                 result += (symbolValues.FirstOrDefault(a => a.Item2 == s[i + 1].ToString()).Item3 -
+                            symbolValues.FirstOrDefault(a => a.Item2 == s[i].ToString()).Item3);
+                 i++;
+             }
+             else
+                 result += symbolValues.FirstOrDefault(a => a.Item2 == s[i].ToString()).Item3;
+         }
+     }
+     return result;
+ }
 
 
